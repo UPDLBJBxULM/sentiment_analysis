@@ -71,9 +71,10 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 early_stopping = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 
 # Latih Model
-model.fit(X_train_tfidf, y_train_categorical, epochs=10, batch_size=16, 
+model.fit(X_train_tfidf, y_train_categorical, epochs=10, batch_size=16,
           validation_split=0.2, callbacks=[early_stopping])
 
 # Simpan Model ke File .h5
 model.save('sentiment_model.h5')
 print("Model berhasil disimpan sebagai 'sentiment_model.h5'")
+
