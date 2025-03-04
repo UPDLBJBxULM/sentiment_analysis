@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import nltk
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 from tensorflow.keras.models import Sequential
@@ -8,6 +9,8 @@ from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.preprocessing import LabelEncoder
 import joblib  # Untuk menyimpan TF-IDF Vectorizer
+
+nltk.download('punkt_tab')
 
 # Fungsi untuk membaca file CSV
 def baca_data_csv(nama_file):
@@ -77,3 +80,6 @@ model.fit(X_train_tfidf, y_train_categorical, epochs=10, batch_size=16,
 # Simpan Model ke File .h5
 model.save('sentiment_model.h5')
 print("Model berhasil disimpan sebagai 'sentiment_model.h5'")
+
+joblib.dump(label_encoder, 'label_encoder.pkl')
+
