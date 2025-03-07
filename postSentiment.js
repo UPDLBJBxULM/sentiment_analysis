@@ -62,7 +62,7 @@ function postSentimen(e) {
    * @param {Object} sheet - Objek sheet Google Spreadsheet
    */
   function sendSentimentRequest(payloads, sheet) {
-    var url = "https://7stm1xg6-5000.asse.devtunnels.ms/predict";
+    var url = "https://a1a6-202-162-217-186.ngrok-free.app/predict";
   
     var options = {
       "method": "post",
